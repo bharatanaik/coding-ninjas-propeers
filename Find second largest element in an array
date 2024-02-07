@@ -1,0 +1,29 @@
+#include <bits/stdc++.h> 
+int findSecondLargest(int n, vector<int> &arr)
+{
+    int second, first = -999;
+
+    int isSame = arr[0];
+    int isSameCount = 0;
+
+    for(int i=0; i<arr.size(); i++){
+        if(isSame == arr[i]){
+            isSameCount++;
+        }
+        if(arr[i] > first){
+            second = first;
+            first = arr[i];
+        }
+        else if (arr[i] > second && arr[i] != first){
+            second = arr[i];
+        }
+    }
+    if(isSameCount == arr.size()){
+        return -1;
+    }
+    else{
+        return second;
+    }
+
+
+}
